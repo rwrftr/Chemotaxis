@@ -51,7 +51,7 @@
  class Bacteria    
  {     
    
-   int speed, Xpos, Ypos, color1, color2, color3, a2, b2;
+   int speed, Xpos, Ypos, color1, color2, color3, a2, b2, b3;
    
    Bacteria(int a, int b){
    
@@ -60,6 +60,7 @@
     speed = 2;
     a2 = a;
     b2 = b;
+    b3 = b;
      
    }
    
@@ -89,11 +90,26 @@
    b2 += 1;
  }
  
+ if (Ypos >= 500){
+ 
+   b3 += 1;
+   
+ }
+ 
  if (Xpos <= 0){
  b2 -= 1;
  }
+ 
+ if (Ypos <= 0){
+ 
+   b3 -= 1;
+   
+ }
+ 
+ 
+ 
    Xpos += (int)(Math.random()*a2)-b2;
-   Ypos += (int)(Math.random()*a2)-b2;
+   Ypos += (int)(Math.random()*a2)-b3;
    
    
  }
