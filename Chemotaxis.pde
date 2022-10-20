@@ -86,11 +86,11 @@
  void move(){
 
    if (Xpos >= 500){
-   b2 = 3;
+   b2 += 1;
  }
  
  if (Xpos <= 0){
- b2 = 2;
+ b2 -= 1;
  }
    Xpos += (int)(Math.random()*a2)-b2;
    Ypos += (int)(Math.random()*a2)-b2;
