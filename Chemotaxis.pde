@@ -1,122 +1,85 @@
- //declare bacteria variables here   
- int x = 15;
- int a1 = 6;
- int b1 = 2;
- Bacteria [] one = new Bacteria[x];
- 
- 
- 
- void setup()   
- {     
- 
-   //initialize bacteria variables here   
- 
- size(500,500);
- 
- for(int i = 0; i < one.length; i++){
-     one[i] = new Bacteria(a1, b1);
-   }
-   
- 
- }   
- 
- 
- void mouseclicked(){
-  
-   //if ((mouseButton == LEFT) && (mouseX)){
-    
-     
-     
-   //}
-   
- }
- 
- void draw()   
- {    
-   //move and show the bacteria   
- 
- background(0);
- 
- for(int i = 0; i < one.length; i++){
-     one[i].show();
-     one[i].move();
-   } 
-   
- 
- }  
- 
- 
- 
- 
- class Bacteria    
- {     
-   
-   int speed, Xpos, Ypos, color1, color2, color3, a2, b2, b3;
-   
-   Bacteria(int a, int b){
-   
-    Xpos = 255;
-    Ypos = 255;
-    speed = 2;
-    a2 = a;
-    b2 = b;
-    b3 = b;
-     
-   }
-   
-   
-   
-   
-   
-   //lots of java!   
- 
- void show(){
-  
-   color1 = (int)(Math.random()*255);
-     color2 = (int)(Math.random()*255);
-     color3 = (int)(Math.random()*255);
-   
- fill (color1, color2, color3);
- ellipse(Xpos, Ypos, 10, 10);
- 
- 
-   
-}
- 
- 
- void move(){
 
-   if (Xpos >= 500){
-   b2 += 1;
- }
- 
- if (Ypos >= 500){
- 
-   b3 += 1;
-   
- }
- 
- if (Xpos <= 0){
- b2 -= 1;
- }
- 
- if (Ypos <= 0){
- 
-   b3 -= 1;
-   
- }
- 
- 
- 
-   Xpos += (int)(Math.random()*a2)-b2;
-   Ypos += (int)(Math.random()*a2)-b3;
-   
-   
- }
- 
- 
- 
- }    
- 
- 
- 
+star [] alpha = new star[100];
+
+
+void setup()
+{
+  background(9, 1, 48);
+  size(1280, 720); 
+  //size(500,500);
+
+  for (int i = 0; i < alpha.length; i++) { 
+    alpha[i] = new star();
+  }
+
+  //your code here
+}
+
+void mouseClicked() {
+
+  setup();
+  draw();
+  //print("yea");
+}
+
+void draw()
+{
+
+
+
+  for (int i = 0; i < alpha.length; i++) { 
+    alpha[i].show(30);
+  } 
+
+
+  //your code here
+}
+
+class star
+{
+
+  int myX, myY, mySize, myC;
+  star() {
+
+    myX = (int)(Math.random()*(1260))+10;
+    myY = (int)(Math.random()*(700))+10;
+    myC = color(251, 255, 57, 80);
+    mySize = (int)(Math.random()*5)+5;
+  }
+
+  void show(int p) {
+
+//this was meant to stop the dots from going in the same spot but now it just does some other stuff which is cool
+/*
+    for (int i = 0; i < alpha.length; i++) {
+      for (int s = 0; s < alpha.length; s++) {
+
+        if ((alpha[i].myX == alpha[s].myX)) {
+          alpha[i].myX = (int)(Math.random()*(1260))+10;
+        }
+        if ((alpha[i].myY== alpha[s].myY)) {
+          alpha[i].myY = (int)(Math.random()*(700))+10;
+        }
+      }
+    }
+*/
+    noStroke();
+    myC = color(251, 255, 57, p);
+    fill(myC);  
+    ellipse(myX, myY, mySize, mySize);
+  }
+
+
+  void blink() {
+  }
+}
+
+class Particle
+{
+  //your code here
+}
+
+class OddballParticle //inherits from Particle
+{
+  //your code here
+}
